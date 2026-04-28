@@ -12,22 +12,6 @@ h1 {
   font-size: 3rem;
 }
 
-body {
-  font-family: var(--font-default);
-  background: #a8b2ba;
-  background: #02171f;
-  background: #02171f;
-  background: linear-gradient(
-    162deg,
-    rgba(2, 23, 31, 1) 0%,
-    rgba(55, 59, 82, 1) 47%,
-    rgba(123, 127, 138, 1) 100%
-  );
-  background-repeat: no-repeat;
-  color: var(--color-dark-mode);
-  height: 100vh;
-}
-
 input {
   outline: none;
   text-align: center;

@@ -13,5 +13,4 @@ form {
 .counterValue {
   font-size: clamp(8rem, 30vw, 16rem);
   font-weight: 700;
-  color: var(--text-default);
 }

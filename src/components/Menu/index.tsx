@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CardMenu } from "../CardMenu";
 import styles from "./styles.module.css";
 import { History, Settings, Sun, SunMoon, Watch } from "lucide-react";
+import { ThemeContext } from "../../context/theme";
 
 type ThemeType = "dark" | "light";
 
 export const Menu = () => {
+  const themeContext = useContext(ThemeContext);
   const iconConfig = {
     size: 30,
     strokeWidth: 1.25,
@@ -13,6 +15,7 @@ export const Menu = () => {
   const [theme, setTheme] = useState<ThemeType>("dark");
 
   const handleTheme = () => {
+    console.log(themeContext);
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
@@ -53,14 +56,20 @@ export const Menu = () => {
                 theme === "dark" ? styles.iconActive : styles.iconInactive
               }`}
             >
-              <SunMoon size={iconConfig.size} strokeWidth={iconConfig.strokeWidth} />
+              <SunMoon
+                size={iconConfig.size}
+                strokeWidth={iconConfig.strokeWidth}
+              />
             </span>
             <span
               className={`${styles.themeIcon} ${
                 theme === "light" ? styles.iconActive : styles.iconInactive
               }`}
             >
-              <Sun size={iconConfig.size} strokeWidth={iconConfig.strokeWidth} />
+              <Sun
+                size={iconConfig.size}
+                strokeWidth={iconConfig.strokeWidth}
+              />
             </span>
           </div>
         </CardMenu>
@@ -70,8 +79,8 @@ export const Menu = () => {
 
   return (
     <nav className={styles.menuContainer}>
-      {icons.map((icon) => {
-        return icon.element;
+      {icons.map((icon, index) => {
+        return <div key={index}>{icon.element}</div>;
       })}
     </nav>
   );
