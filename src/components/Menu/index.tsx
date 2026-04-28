@@ -1,22 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CardMenu } from "../CardMenu";
 import styles from "./styles.module.css";
 import { History, Settings, Sun, SunMoon, Watch } from "lucide-react";
-import { ThemeContext } from "../../context/theme";
-
-type ThemeType = "dark" | "light";
+import { ThemeContext, type ThemeContextType } from "../../context/theme";
 
 export const Menu = () => {
-  const themeContext = useContext(ThemeContext);
   const iconConfig = {
     size: 30,
     strokeWidth: 1.25,
   };
-  const [theme, setTheme] = useState<ThemeType>("dark");
+  const { theme, setTheme } = useContext<ThemeContextType>(ThemeContext);
 
   const handleTheme = () => {
-    console.log(themeContext);
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    console.log("change theme");
   };
 
   const icons = [
