@@ -1,0 +1,10 @@
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  box-sizing: border-box;
+  padding: 3rem 0rem;
+  width: 50vw;
+  font-size: 1.7rem;
+}

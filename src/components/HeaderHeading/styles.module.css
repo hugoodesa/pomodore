@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-top: 4vh;
+}
+
+.container a {
+  text-decoration: none;
+  text-align: center;
+  color: var(--link-color);
+}
+.title {
+  font-weight: bold;
+  color: var(--link-color);
+  font-size: 5rem;
+}
+
+.container a svg,
+.container a .title {
+  color: inherit;
+}
+
+.container a:hover {
+  color: var(--link-hover);
+  transition: ease-in-out 500ms;
+}

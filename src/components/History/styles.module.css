@@ -1,0 +1,111 @@
+.container {
+  width: 100%;
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 2rem 1.6rem;
+  font-family: var(--font-default);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.toolbar h1 {
+  margin: 0;
+  color: var(--text-default);
+  font-weight: 600;
+}
+
+.deleteBtn {
+  font-family: inherit;
+  font-size: 1.4rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  border: 1px solid var(--error);
+  background: transparent;
+  color: var(--gray-200);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.deleteBtn:hover {
+  background: var(--error);
+  color: var(--text-over-error);
+  border-color: var(--error);
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 1rem;
+  border: 1px solid var(--gray-700);
+  background: var(--gray-900);
+  box-shadow: 0 0.4rem 2.4rem rgba(0, 0, 0, 0.25);
+}
+
+.table {
+  width: 100%;
+  min-width: 56rem;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 1.4rem;
+}
+
+.table thead {
+  background: var(--gray-800);
+}
+
+.table th {
+  text-align: left;
+  padding: 1.2rem 1.4rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--gray-600);
+}
+
+.table th:nth-child(2),
+.table th:nth-child(3) {
+  text-align: right;
+}
+
+.table th:nth-child(4),
+.table th:nth-child(5) {
+  text-align: center;
+}
+
+.table td {
+  padding: 1.2rem 1.4rem;
+  color: var(--text-default);
+  border-bottom: 1px solid var(--gray-800);
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+.table td:nth-child(2),
+.table td:nth-child(3) {
+  text-align: right;
+  color: var(--gray-200);
+  font-variant-numeric: tabular-nums;
+}
+
+.table td:nth-child(4),
+.table td:nth-child(5) {
+  text-align: center;
+}
+
+.table tbody tr:hover {
+  background: var(--gray-800);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}

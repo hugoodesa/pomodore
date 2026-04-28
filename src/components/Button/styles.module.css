@@ -1,0 +1,15 @@
+.button {
+  background-color: var(--link-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  width: 80%;
+  box-sizing: border-box;
+  margin-top: 3rem;
+}
+
+.button:hover {
+  background-color: var(--link-hover);
+  transition: ease-in 0.15s;
+  cursor: pointer;
+}

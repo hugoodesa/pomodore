@@ -1,0 +1,17 @@
+:root {
+  /*bg*/
+  --bg-dark-mode: black;
+  --bg-ligh-mode: white;
+
+  /*colors*/
+  --color-dark-mode: white;
+  --color-light-mode: black;
+
+  --font-default: "Roboto", sans-serif;
+}
+
+* {
+  font-family: var(--font-default);
+  background-color: var(--bg-dark-mode);
+  color: var(--color-dark-mode);
+}

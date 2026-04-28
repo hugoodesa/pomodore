@@ -1,0 +1,17 @@
+.counter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.counterValue {
+  font-size: clamp(8rem, 30vw, 16rem);
+  font-weight: 700;
+  color: var(--text-default);
+}
