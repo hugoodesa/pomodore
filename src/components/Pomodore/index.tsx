@@ -4,13 +4,16 @@ import { Menu } from "../Menu";
 import styles from "./style.module.css";
 import { ThemeContext, type ThemeType } from "../../context/theme";
 import { useState } from "react";
+import { getDataFromLocalStorage } from "../../utils/localStorage";
 
 type PomodoreAppProps = {
   children: React.ReactNode;
 };
 
 export const PomodoreApp = ({ children }: PomodoreAppProps) => {
-  const [theme, setTheme] = useState<ThemeType>("dark");
+  const [theme, setTheme] = useState<ThemeType>(() => {
+    return (getDataFromLocalStorage("theme") as ThemeType) || "dark";
+  });
 
   return (
     <ThemeContext value={{ theme, setTheme }}>

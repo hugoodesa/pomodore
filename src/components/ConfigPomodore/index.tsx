@@ -10,11 +10,11 @@ export const ConfigPomodore = () => {
       <h3>Configure os minutos para as etapas do Pomodoro.</h3>
       <Form>
         <label htmlFor="foco">Foco (min):</label>
-        <input type="text" name="foco" />
+        <input type="number" name="foco" />
         <label htmlFor="foco">Descanso curto (min):</label>
-        <input type="text" name="foco" />
+        <input type="number" name="foco" />
         <label htmlFor="foco">Descanso long(min):</label>
-        <input type="text" name="foco" />
+        <input type="number" name="foco" />
         <Button type="submit">
           <Save color="white" />
         </Button>

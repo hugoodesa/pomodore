@@ -19,7 +19,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 220ms ease, transform 220ms ease;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
 }
 
 .iconActive {

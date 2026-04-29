@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CardMenu } from "../CardMenu";
 import styles from "./styles.module.css";
 import { History, Settings, Sun, SunMoon, Watch } from "lucide-react";
 import { ThemeContext, type ThemeContextType } from "../../context/theme";
+import { saveIntoLocalStorage } from "../../utils/localStorage";
 
 export const Menu = () => {
   const iconConfig = {
@@ -11,8 +12,17 @@ export const Menu = () => {
   };
   const { theme, setTheme } = useContext<ThemeContextType>(ThemeContext);
 
-  const handleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    setTheme((prev) => {
+      const newTheme = prev === "dark" ? "light" : "dark";
+      saveIntoLocalStorage(newTheme);
+      return newTheme;
+    });
     console.log("change theme");
   };
 
@@ -50,7 +60,7 @@ export const Menu = () => {
           <div className={styles.themeIconWrapper}>
             <span
               className={`${styles.themeIcon} ${
-                theme === "dark" ? styles.iconActive : styles.iconInactive
+                theme === "light" ? styles.iconActive : styles.iconInactive
               }`}
             >
               <SunMoon
@@ -60,7 +70,7 @@ export const Menu = () => {
             </span>
             <span
               className={`${styles.themeIcon} ${
-                theme === "light" ? styles.iconActive : styles.iconInactive
+                theme === "dark" ? styles.iconActive : styles.iconInactive
               }`}
             >
               <Sun
