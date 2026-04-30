@@ -1,30 +1,23 @@
+import { History, Settings, Sun, SunMoon, Watch } from "lucide-react";
 import { useContext, useEffect } from "react";
+import { ThemeContext, type ThemeType } from "../../context/theme";
 import { CardMenu } from "../CardMenu";
 import styles from "./styles.module.css";
-import { History, Settings, Sun, SunMoon, Watch } from "lucide-react";
-import { ThemeContext, type ThemeContextType } from "../../context/theme";
-import { saveIntoLocalStorage } from "../../utils/localStorage";
 
-export const Menu = () => {
+type MenuProps = {
+  handleTheme: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+};
+
+export const Menu = ({ handleTheme }: MenuProps) => {
   const iconConfig = {
     size: 30,
     strokeWidth: 1.25,
   };
-  const { theme, setTheme } = useContext<ThemeContextType>(ThemeContext);
+  const theme = useContext<ThemeType>(ThemeContext);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
-
-  const handleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    setTheme((prev) => {
-      const newTheme = prev === "dark" ? "light" : "dark";
-      saveIntoLocalStorage(newTheme);
-      return newTheme;
-    });
-    console.log("change theme");
-  };
 
   const icons = [
     {

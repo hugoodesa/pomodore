@@ -22,7 +22,7 @@ export const Counter = ({ children }: CounterProps) => {
 
         <Cycles />
 
-        <Button>
+        <Button type="submit">
           <Play color="white" />
         </Button>
       </Form>
