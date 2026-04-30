@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ThemeContext, type ThemeType } from "../../context/theme";
+import { useEffect, useState } from "react";
+import { type ThemeType } from "../../context/theme";
 import {
   getDataFromLocalStorage,
   saveIntoLocalStorage,
@@ -18,24 +18,24 @@ export const PomodoreApp = ({ children }: PomodoreAppProps) => {
     return (getDataFromLocalStorage("theme") as ThemeType) || "dark";
   });
 
+  useEffect(() => {
+    saveIntoLocalStorage(theme);
+  }, [theme]);
+
   const handleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     setTheme((prev) => {
-      const newTheme = prev === "dark" ? "light" : "dark";
-      saveIntoLocalStorage(newTheme);
-      return newTheme;
+      return prev === "dark" ? "light" : "dark";
     });
     console.log("change theme");
   };
 
   return (
-    <ThemeContext value={theme}>
-      <div className={`${styles.container} ${styles[theme]}`}>
-        <HeaderHeading />
-        <Menu handleTheme={handleTheme} />
-        {children}
-        <Footer />
-      </div>
-    </ThemeContext>
+    <div className={`${styles.container} ${styles[theme]}`}>
+      <HeaderHeading />
+      <Menu handleTheme={handleTheme} theme={theme} />
+      {children}
+      <Footer />
+    </div>
   );
 };
