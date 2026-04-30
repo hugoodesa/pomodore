@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { type ThemeType } from "../../context/theme";
+import { type ThemeType } from "../../models/Theme";
 import {
   getDataFromLocalStorage,
   saveIntoLocalStorage,
