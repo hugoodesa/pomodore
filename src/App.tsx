@@ -1,14 +1,9 @@
-import { Counter } from "./components/Counter";
-import { PomodoreApp } from "./components/Pomodore";
+import { Home } from "./pages/home";
 import "./styles/global.css";
 import "./styles/theme.css";
 
 function App() {
-  return (
-    <PomodoreApp>
-      <Counter />
-    </PomodoreApp>
-  );
+  return <Home />;
 }
 
 export default App;
