@@ -11,6 +11,7 @@ type PomodoreAppProps = {
 };
 
 export const PomodoreApp = ({ children }: PomodoreAppProps) => {
+  //works as a provider
   const [theme, setTheme] = useState<ThemeType>(() => {
     return (getDataFromLocalStorage("theme") as ThemeType) || "dark";
   });

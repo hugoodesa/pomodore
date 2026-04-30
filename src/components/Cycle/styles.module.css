@@ -1,8 +1,15 @@
 .cicle {
   height: 1.5rem;
-  width:  1.5rem;
+  width: 1.5rem;
+
   border-radius: 50%;
-  background-color: var(--success)
+  background-color: var(--success);
+}
+
+.cicle:hover {
+  outline: 1px solid white;
+  filter: saturate(150%);
+  transition: ease-in-out 100ms;
 }
 
 .work {
@@ -10,9 +17,9 @@
 }
 
 .short {
-  background-color: var(--warning)
+  background-color: var(--warning);
 }
 
 .long {
-  background-color: var(--info)
+  background-color: var(--info);
 }

@@ -5,5 +5,5 @@ type CycleProps = {
 };
 
 export const Cycle = ({ type }: CycleProps) => {
-  return <div className={`${styles.cicle} ${styles[type]}`} />;
+  return <div title={type} className={`${styles.cicle} ${styles[type]}`} />;
 };
