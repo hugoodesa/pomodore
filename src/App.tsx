@@ -1,9 +1,14 @@
+import { TaskStateModelContextComponent } from "./context/TaskStateModel/TaskStateModelContext";
 import { Home } from "./pages/home";
 import "./styles/global.css";
 import "./styles/theme.css";
 
 function App() {
-  return <Home />;
+  return (
+    <TaskStateModelContextComponent>
+      <Home />;
+    </TaskStateModelContextComponent>
+  );
 }
 
 export default App;

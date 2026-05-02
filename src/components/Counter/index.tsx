@@ -3,15 +3,15 @@ import { Button } from "../Button";
 import { Play } from "lucide-react";
 import { Form } from "../Form";
 import { Cycles } from "../Cycles";
+import { useTaskStateModel } from "../../context/TaskStateModel/useTaskStateModel";
 
-type CounterProps = {
-  children?: React.ReactNode;
-};
+export const Counter = () => {
+  const { state } = useTaskStateModel();
+  console.log(state);
 
-export const Counter = ({ children }: CounterProps) => {
   return (
     <div className={styles.counter}>
-      <h1 className={styles.counterValue}>00:00</h1>
+      <h1 className={styles.counterValue}>{state.formattedSecondsRemaining}</h1>
 
       <Form>
         <label htmlFor="task">Tarefa</label>
