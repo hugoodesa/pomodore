@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import type { TaskStateModel } from "../../models/TaskStateModel";
 
-const initialState: TaskStateModel = {
+export const initialState: TaskStateModel = {
   activeTask: null,
   currentCycle: 0,
   formattedSecondsRemaining: "00:00",
@@ -14,15 +14,15 @@ const initialState: TaskStateModel = {
   },
 };
 
-type TaskStateModelProps = {
+export type TaskStateModelProps = {
   state: TaskStateModel;
-  setState: React.Dispatch<React.SetStateAction<TaskStateModel | undefined>>;
+  setState: React.Dispatch<React.SetStateAction<TaskStateModel>>;
 };
 
-export const initialTaskStateModelProps = {
+const initialStateContext: TaskStateModelProps = {
   state: initialState,
   setState: () => {},
 };
-export const TaskStateModelContext = createContext<TaskStateModelProps>(
-  initialTaskStateModelProps,
-);
+
+export const TaskStateModelContext =
+  createContext<TaskStateModelProps>(initialStateContext);

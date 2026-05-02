@@ -5,9 +5,9 @@ type ButtonProps = {
   type?: string;
 } & React.ComponentProps<"button">;
 
-export const Button = ({ children }: ButtonProps) => {
+export const Button = ({ children, ...rest }: ButtonProps) => {
   return (
-    <button className={styles.button} type="submit">
+    <button className={styles.button} {...rest}>
       {children}
     </button>
   );

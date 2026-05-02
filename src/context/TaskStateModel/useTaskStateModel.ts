@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { TaskStateModelContext } from ".";
+import { TaskStateModelContext } from "./taskState.context";
 
 export const useTaskStateModel = () => {
   const context = useContext(TaskStateModelContext);
+
   if (!context) {
-    throw new Error("Must be used inside provider");
+    throw new Error("useTaskStateModel must be used within provider");
   }
+
   return context;
 };

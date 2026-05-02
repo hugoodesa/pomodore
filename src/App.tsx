@@ -6,7 +6,7 @@ import "./styles/theme.css";
 function App() {
   return (
     <TaskStateModelContextComponent>
-      <Home />;
+      <Home />
     </TaskStateModelContextComponent>
   );
 }

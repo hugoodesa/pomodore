@@ -5,5 +5,14 @@ type FormProps = {
 };
 
 export const Form = ({ children }: FormProps) => {
-  return <form className={styles.container}>{children}</form>;
+  return (
+    <form onSubmit={(e) => handleSubmit(e)} className={styles.container}>
+      {children}
+    </form>
+  );
+};
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log("submit");
 };

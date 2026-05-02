@@ -4,10 +4,25 @@ import { Play } from "lucide-react";
 import { Form } from "../Form";
 import { Cycles } from "../Cycles";
 import { useTaskStateModel } from "../../context/TaskStateModel/useTaskStateModel";
+import { useEffect } from "react";
 
 export const Counter = () => {
-  const { state } = useTaskStateModel();
+  const { state, setState } = useTaskStateModel();
   console.log(state);
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    console.log("submit");
+    e.preventDefault();
+    setState((prevState) => ({
+      ...prevState,
+      formattedSecondsRemaining: "00:01",
+    }));
+    console.log("render", state.formattedSecondsRemaining);
+  };
+
+  useEffect(() => {
+    console.log("updated", state.formattedSecondsRemaining);
+  }, [state.formattedSecondsRemaining]);
 
   return (
     <div className={styles.counter}>
@@ -22,7 +37,7 @@ export const Counter = () => {
 
         <Cycles />
 
-        <Button type="submit">
+        <Button type="button" onClick={handleSubmit}>
           <Play color="white" />
         </Button>
       </Form>

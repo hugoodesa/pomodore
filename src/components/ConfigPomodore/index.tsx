@@ -1,9 +1,21 @@
-import styles from "./styles.module.css";
-import { Form } from "../Form";
-import { Button } from "../Button";
 import { Save } from "lucide-react";
+import { Button } from "../Button";
+import { Form } from "../Form";
+import styles from "./styles.module.css";
+import { useTaskStateModel } from "../../context/TaskStateModel/useTaskStateModel";
 
 export const ConfigPomodore = () => {
+  const { setState } = useTaskStateModel();
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    console.log("submit");
+    e.preventDefault();
+    setState((prevState) => ({
+      ...prevState,
+      formattedSecondsRemaining: "00:01",
+    }));
+  };
+
   return (
     <div className={styles.container}>
       <h1>Configurações</h1>
@@ -15,7 +27,7 @@ export const ConfigPomodore = () => {
         <input type="number" name="foco" />
         <label htmlFor="foco">Descanso long(min):</label>
         <input type="number" name="foco" />
-        <Button type="submit">
+        <Button onClick={(e) => handleSubmit(e)} type="button">
           <Save color="white" />
         </Button>
       </Form>

@@ -1,14 +1,15 @@
-import { initialTaskStateModelProps, TaskStateModelContext } from ".";
-
-type TaskStateModelContextProps = {
-  children: React.ReactNode;
-};
+import { useState } from "react";
+import { initialState, TaskStateModelContext } from "./taskState.context";
 
 export const TaskStateModelContextComponent = ({
   children,
-}: TaskStateModelContextProps) => {
+}: {
+  children: React.ReactNode;
+}) => {
+  const [state, setState] = useState(initialState);
+
   return (
-    <TaskStateModelContext.Provider value={initialTaskStateModelProps}>
+    <TaskStateModelContext.Provider value={{ state, setState }}>
       {children}
     </TaskStateModelContext.Provider>
   );
