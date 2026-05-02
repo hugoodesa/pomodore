@@ -14,4 +14,15 @@ const initialState: TaskStateModel = {
   },
 };
 
-export const TaskStateModelContext = createContext(initialState);
+type TaskStateModelProps = {
+  state: TaskStateModel;
+  setState: React.Dispatch<React.SetStateAction<TaskStateModel | undefined>>;
+};
+
+export const initialTaskStateModelProps = {
+  state: initialState,
+  setState: () => {},
+};
+export const TaskStateModelContext = createContext<TaskStateModelProps>(
+  initialTaskStateModelProps,
+);

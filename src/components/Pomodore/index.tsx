@@ -24,9 +24,7 @@ export const PomodoreApp = ({ children }: PomodoreAppProps) => {
 
   const handleTheme = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    setTheme((prev) => {
-      return prev === "dark" ? "light" : "dark";
-    });
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
     console.log("change theme");
   };
 
