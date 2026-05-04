@@ -1,12 +1,17 @@
+import type React from "react";
 import styles from "./styles.module.css";
 
 type FormProps = {
   children: React.ReactNode;
-};
+} & React.ComponentProps<"form">;
 
-export const Form = ({ children }: FormProps) => {
+export const Form = ({ children, ...rest }: FormProps) => {
   return (
-    <form onSubmit={(e) => handleSubmit(e)} className={styles.container}>
+    <form
+      onSubmit={(e) => handleSubmit(e)}
+      className={styles.container}
+      {...rest}
+    >
       {children}
     </form>
   );

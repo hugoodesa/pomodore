@@ -28,7 +28,7 @@ export const Counter = () => {
     <div className={styles.counter}>
       <h1 className={styles.counterValue}>{state.formattedSecondsRemaining}</h1>
 
-      <Form>
+      <Form method="post">
         <label htmlFor="task">Tarefa</label>
         <input type="text" name="task" id="task" />
         <p>
